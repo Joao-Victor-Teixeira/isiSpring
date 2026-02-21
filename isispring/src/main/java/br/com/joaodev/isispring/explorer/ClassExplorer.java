@@ -9,11 +9,12 @@ import java.util.List;
 public class ClassExplorer {
 
     public static List<String> retrieveAllClasses(Class<?> sourceClass){
+        // após a logica fica com os nomes das classes 
         return packageExplorer(sourceClass.getPackageName());
     }
 
     public static List<String> packageExplorer(String packageName){
-        
+        // recursivamente lê todo o projeto, retornando classes e pacotes
         ArrayList<String> classNames = new ArrayList<String>();
         try {
             InputStream stream =ClassLoader.getSystemClassLoader().getResourceAsStream(packageName.replaceAll("\\.", "/"));
